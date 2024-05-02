@@ -5,15 +5,20 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qdjl"]
 size = Vector2(121, 128)
 
-[node name="Node2D" type="Node2D"]
-
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="RigidBody2D" type="RigidBody2D"]
+position = Vector2(-76, -101)
+disable_mode = 2
 mass = 5.0
-gravity_scale = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(505, 455)
 shape = SubResource("RectangleShape2D_0qdjl")
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D/CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
 texture = ExtResource("2_umkjf")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CollisionShape2D"]
+position = Vector2(-505, -455)
+texture = ExtResource("2_umkjf")
+
+[node name="Node2D" type="Node2D" parent="."]
