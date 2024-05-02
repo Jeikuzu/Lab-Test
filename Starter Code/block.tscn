@@ -1,28 +1,38 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwi6lmhwtpkeh"]
+[gd_scene load_steps=6 format=3 uid="uid://bwi6lmhwtpkeh"]
 
 [ext_resource type="Script" path="res://block.gd" id="1_4urbb"]
+[ext_resource type="Texture2D" uid="uid://rb8smo0f45mc" path="res://icon.svg" id="2_3ijxi"]
+[ext_resource type="Script" path="res://RigidBody2D.gd" id="3_adoqv"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_04on2"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_eic81"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5iuy"]
 size = Vector2(48, 50)
 
 [node name="block" type="StaticBody2D"]
+scale = Vector2(0.0800009, 0.0799998)
 script = ExtResource("1_4urbb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.592157, 0.337255, 0.784314, 1)
 material = SubResource("CanvasItemMaterial_04on2")
-scale = Vector2(50, 50)
-texture = SubResource("CanvasTexture_eic81")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_v5iuy")
+scale = Vector2(3.08, 3.08001)
+texture = ExtResource("2_3ijxi")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 autoplay = true
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(1, 1)
+scale = Vector2(8.49998, 8.33332)
+inertia = 1.42
+freeze_mode = 1
+linear_velocity = Vector2(0, 5)
+angular_velocity = 0.0872665
+constant_force = Vector2(0, 5)
+script = ExtResource("3_adoqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_v5iuy")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

@@ -6,7 +6,7 @@ func _input(event):
 	if event is InputEventMouseButton and event.pressed:	
 		var new_thing = thing.instantiate()
 		new_thing.global_position = event.global_position
-		new_thing.name = "block " + str(event)
+		new_thing.name = "theSpawned" + str(event)
 		get_tree().get_root().add_child(new_thing) 
 		
 		## scale = Vector2.ZERO
